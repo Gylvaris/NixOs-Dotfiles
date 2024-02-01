@@ -9,5 +9,6 @@
     ++ [(import ./micro)]
     ++ [(import ./gtk)]
     ++ [(import ./firefox)]
-    ++ [(import ./btop)];
+    ++ [(import ./btop)]
+    ++ [(import ./bat)];
 }

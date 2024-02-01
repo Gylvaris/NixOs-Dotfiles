@@ -60,9 +60,9 @@
         border_part_of_window = false
       }
 
-        xwayland {
-            force_zero_scaling = true
-        }
+      xwayland {
+        force_zero_scaling = true
+      }
 
       dwindle {
         no_gaps_when_only = false
@@ -103,6 +103,15 @@
           xray = true
         }
 
+        drop_shadow = true;
+        
+        shadow_ignore_window = true;
+        shadow_offset = 0 2
+        shadow_range = 20
+        shadow_render_power = 3
+        col.shadow = rgba(00000055)
+      }
+
 
       animations {
         enabled = true
@@ -127,7 +136,6 @@
         animation = borderangle, 1, 30, fluent_decel, once # for animating the border's gradient angle - styles: once (default), loop
         animation = workspaces, 1, 4, easeOutCubic, fade # styles: slide, slidevert, fade, slidefade, slidefadevert
       }
-
 
       # ----------------------------------------------------------------
       

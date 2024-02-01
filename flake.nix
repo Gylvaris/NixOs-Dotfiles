@@ -1,5 +1,5 @@
 {
-  description = "Mam kurwa depresje";
+  description = "My personal NixOS configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";

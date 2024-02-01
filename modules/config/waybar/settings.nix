@@ -22,9 +22,6 @@
     margin-right= 0;
     modules-left= [
         "custom/launcher" 
-        "custom/playerctl#backward" 
-        "custom/playerctl#play" 
-        "custom/playerctl#forward" 
     ];
     modules-center= [
         "hyprland/workspaces"
@@ -58,31 +55,6 @@
             default = "";
             sort-by-number= true;
         };
-    };
-    "custom/playerctl#backward"= {
-        format= "󰙣 "; 
-        on-click= "playerctl previous";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
-    };
-    "custom/playerctl#play"= {
-        format= "{icon}";
-        return-type= "json";
-        exec= "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F";
-        on-click= "playerctl play-pause";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
-        format-icons= {
-            Playing = "<span>󰏥 </span>";
-            Paused = "<span> </span>";
-            Stopped = "<span> </span>";
-        };
-    };
-    "custom/playerctl#forward"= {
-        format= "󰙡 ";
-        on-click= "playerctl next";
-        on-scroll-up = "playerctl volume .05+";
-        on-scroll-down = "playerctl volume .05-";
     };
     memory= {
         format= "󰟜 {}%";

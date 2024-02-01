@@ -60,8 +60,7 @@
         background-size: 200% 200%;
     }
 
-    #tray, #pulseaudio, #network, #cpu, #memory, #disk,
-    #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward{
+    #tray, #pulseaudio, #network, #cpu, #memory, #disk{
         background: #${custom.palette.tertiary_background_hex};
         font-weight: bold;
         margin: 5px 0px;
@@ -124,30 +123,6 @@
         margin: 0px;
         padding: 0px 30px 0px 10px;
         font-size: 28px;
-    }
-
-    #custom-playerctl.backward, #custom-playerctl.play, #custom-playerctl.forward {
-        background: #${custom.palette.tertiary_background_hex};
-        font-size: 22px;
-    }
-    #custom-playerctl.backward:hover, #custom-playerctl.play:hover, #custom-playerctl.forward:hover{
-        color: #${custom.tertiary_accent};
-    }
-    #custom-playerctl.backward {
-        color: #${custom.primary_accent};
-        border-radius: 24px 0px 0px 10px;
-        padding-left: 16px;
-        margin-left: 7px;
-    }
-    #custom-playerctl.play {
-        color: #${custom.secondary_accent};
-        padding: 0 5px;
-    }
-    #custom-playerctl.forward {
-        color: #${custom.primary_accent};
-        border-radius: 0px 10px 24px 0px;
-        padding-right: 12px;
-        margin-right: 7px
     }
     #window{
         background: #${custom.palette.tertiary_background_hex};
