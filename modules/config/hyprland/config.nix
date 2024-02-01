@@ -1,8 +1,4 @@
 { ... }:
-let
-    color = (import ../../variables/colors.nix);
-    window_manager = (import ../../variables/window_manager.nix);
-in
 {
     wayland.windowManager.hyprland = {
         extraConfig = "
@@ -21,6 +17,7 @@ in
         exec-once = dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP # for XDPH
         exec-once = dbus-update-activation-environment --systemd --all # for XDPH
         exec-once = nm-applet --indicator &
+        exec-once = hyprctl setcursor Nordzy-cursors 22 &
         exec-once = waybar &
         exec-once = dunst
         exec-once = waypaper
@@ -49,83 +46,87 @@ in
             mouse_move_enables_dpms = true
             disable_splash_rendering = true
             disable_hyprland_logo = true
+            disable_autoreload = true
         }
 
-        general {
-            sensitivity = 1.00
-            apply_sens_to_raw = 1
-            gaps_in = 3
-            gaps_out = 8
-            border_size = 0
-            col.active_border = rgba(bb9af7ff) rgba(b4f9f8ff) 45deg
-            col.inactive_border = rgba(565f89cc) rgba(9aa5cecc) 45deg
+      general {
+        layout = dwindle
 
-            layout = dwindle
-
-            allow_tearing = false
-
-            border_part_of_window = false
-        }
+        gaps_in = 5
+        gaps_out = 10
+        border_size = 2
+        col.active_border = rgb(cba6f7) rgb(94e2d5) 45deg
+        col.inactive_border = 0x00000000
+        border_part_of_window = false
+      }
 
         xwayland {
             force_zero_scaling = true
         }
 
-        dwindle {
-            pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-            preserve_split = yes # you probably want this
+      dwindle {
+        no_gaps_when_only = false
+        force_split = 0
+        special_scale_factor = 1.0
+        split_width_multiplier = 1.0
+        use_active_for_splits = true
+        pseudotile = yes
+        preserve_split = yes
+      }
+
+      master {
+        new_is_master = true
+        special_scale_factor = 1
+        no_gaps_when_only = false
+      }
+
+      decoration {
+        rounding = 12
+        
+        active_opacity = 0.90;
+        inactive_opacity = 0.90;
+        fullscreen_opacity = 1.0;
+
+        blur {
+          enabled = true
+
+          size = 3
+          passes = 3
+          
+          brightness = 1
+          contrast = 1.300000
+          ignore_opacity = true
+          noise = 0.011700
+          
+          new_optimizations = true
+          
+          xray = true
         }
 
-        master {
-            new_is_master = true
-            new_on_top = 1
-            mfact = 0.5
-        } 
 
-        decoration {
+      animations {
+        enabled = true
+        
+        bezier = fluent_decel, 0, 0.2, 0.4, 1
+        bezier = easeOutCirc, 0, 0.55, 0.45, 1
+        bezier = easeOutCubic, 0.33, 1, 0.68, 1
+        bezier = easeinoutsine, 0.37, 0, 0.63, 1
 
-            rounding = 12
-            fullscreen_opacity = 1.0
-            inactive_opacity = 0.85
-            active_opacity = 1.0
-
-            dim_inactive = true
-            dim_strength = 0.1
-    
-            blur {
-                enabled = yes
-                size = 7
-                passes = 3
-                new_optimizations = on
-                ignore_opacity = on
-                xray = true
-            }
-
-            drop_shadow = yes
-            shadow_range = 6
-            shadow_render_power = 1
-            col.shadow = rgba(1a1a1aee)
-            col.shadow_inactive = 0x50000000
-
-            #layerrule = blur,waybar
-        }
-
-
-        animations {
-            enabled = yes
-            bezier = wind, 0.05, 0.9, 0.1, 1.05
-            bezier = winIn, 0.1, 1.1, 0.1, 1.1
-            bezier = winOut, 0.3, -0.3, 0, 1
-            bezier = liner, 1, 1, 1, 1
-            animation = windows, 1, 6, wind, slide
-            animation = windowsIn, 1, 6, winIn, slide
-            animation = windowsOut, 1, 5, winOut, slide
-            animation = windowsMove, 1, 5, wind, slide
-            animation = border, 1, 1, liner
-            animation = borderangle, 1, 30, liner, loop
-            animation = fade, 1, 10, default
-            animation = workspaces, 1, 5, wind
-        }
+        # Windows
+        animation = windowsIn, 1, 3, easeOutCubic, popin 30% # window open
+        animation = windowsOut, 1, 3, fluent_decel, popin 70% # window close.
+        animation = windowsMove, 1, 2, easeinoutsine, slide # everything in between, moving, dragging, resizing.
+        
+        # Fade
+        animation = fadeIn, 1, 3, easeOutCubic  # fade in (open) -> layers and windows
+        animation = fadeOut, 1, 2, easeOutCubic # fade out (close) -> layers and windows
+        animation = fadeSwitch, 0, 1, easeOutCirc # fade on changing activewindow and its opacity
+        animation = fadeShadow, 1, 10, easeOutCirc # fade on changing activewindow for shadows
+        animation = fadeDim, 1, 4, fluent_decel # the easing of the dimming of inactive windows
+        animation = border, 1, 2.7, easeOutCirc # for animating the border's color switch speed
+        animation = borderangle, 1, 30, fluent_decel, once # for animating the border's gradient angle - styles: once (default), loop
+        animation = workspaces, 1, 4, easeOutCubic, fade # styles: slide, slidevert, fade, slidefade, slidefadevert
+      }
 
 
       # ----------------------------------------------------------------

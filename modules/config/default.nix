@@ -5,5 +5,9 @@
     ++ [(import ./packages)]
     ++ [(import ./hyprland)]
     ++ [(import ./git)]
-    ++ [(import ./waybar)];
+    ++ [(import ./waybar)]
+    ++ [(import ./micro)]
+    ++ [(import ./gtk)]
+    ++ [(import ./firefox)]
+    ++ [(import ./btop)];
 }

@@ -8,11 +8,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706450394,
-        "narHash": "sha256-ukrOuprUmG3Duy982EfVcZ10t4i25EoqsSp391txOtw=",
+        "lastModified": 1706820584,
+        "narHash": "sha256-bxdNSMcflfDZXdr7o03f2F9GvwRB9mGt7aYbN0iP0jM=",
         "owner": "ezKEa",
         "repo": "aagl-gtk-on-nix",
-        "rev": "c06cf405666702308273f78eddc30090bd0d2aec",
+        "rev": "3f68c6351aedbfb598824fc930125e06ec12f4e9",
         "type": "github"
       },
       "original": {
@@ -39,6 +39,22 @@
         "owner": "kamadorueda",
         "ref": "3.0.0",
         "repo": "alejandra",
+        "type": "github"
+      }
+    },
+    "catppuccin-bat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1668065083,
+        "narHash": "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=",
+        "owner": "catppuccin",
+        "repo": "bat",
+        "rev": "ba4d16880d63e656acced2b7d4e034e4a93f74b1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "bat",
         "type": "github"
       }
     },
@@ -176,11 +192,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1706473109,
-        "narHash": "sha256-iyuAvpKTsq2u23Cr07RcV5XlfKExrG8gRpF75hf1uVc=",
+        "lastModified": 1706798041,
+        "narHash": "sha256-BbvuF4CsVRBGRP8P+R+JUilojk0M60D7hzqE0bEvJBQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d634c3abafa454551f2083b054cd95c3f287be61",
+        "rev": "4d53427bce7bf3d17e699252fd84dc7468afc46e",
         "type": "github"
       },
       "original": {
@@ -200,11 +216,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1706722456,
-        "narHash": "sha256-oZkX+r/dA63f09vXLk1HrCprIKtdw0LXhqG2cAw6MjA=",
+        "lastModified": 1706816323,
+        "narHash": "sha256-kpGxZ+Q1ootRHXwg7bQXptKeobNMBd8b9Kx2DGPvSXc=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "4f804d5f962070c531dea5025e61be8a0da8129e",
+        "rev": "3656045ad88717fbc079c1ebb44c6f7d2ed85cf2",
         "type": "github"
       },
       "original": {
@@ -306,11 +322,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1706714349,
-        "narHash": "sha256-XCWHBWqfCGgP1EY+KWl2xAy1muJN/MTXChiBDbeAb/8=",
+        "lastModified": 1706750085,
+        "narHash": "sha256-y/+t2ctdeUD/b0DLWS96UgGUs/srj7vbWef709DPxW4=",
         "owner": "fufexan",
         "repo": "nix-gaming",
-        "rev": "015aeaa26b7eeafb14ed7e01dce74d1f2338157f",
+        "rev": "63fa64659760172fef0e4d674c6661b7ad53b16b",
         "type": "github"
       },
       "original": {
@@ -398,11 +414,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1706721231,
-        "narHash": "sha256-rwk+5WUu1Hlj61udTq1eKKovO78D3b9ce//E2eKvSOI=",
+        "lastModified": 1706804340,
+        "narHash": "sha256-r2YhnfsYnIyBLgG+0dgqHOmjwqFM9dRUWqlnsZPvpRI=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "2316f58896a48881c6a504d388704ef3add312d2",
+        "rev": "410f18e150e4e31e4cfa6d792ede963a842f227e",
         "type": "github"
       },
       "original": {
@@ -475,15 +491,32 @@
         "type": "github"
       }
     },
+    "nur": {
+      "locked": {
+        "lastModified": 1706820262,
+        "narHash": "sha256-Xe4kJypV9JYjgFQFnLuQ6/JPZo9d/ricCAo+9CeMNd0=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "9356aa54aaae959f0770dc9a24cb7a64fba70bda",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "aagl": "aagl",
         "alejandra": "alejandra",
+        "catppuccin-bat": "catppuccin-bat",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "nix-gaming": "nix-gaming",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-wayland": "nixpkgs-wayland"
+        "nixpkgs-wayland": "nixpkgs-wayland",
+        "nur": "nur"
       }
     },
     "rust-analyzer-src": {

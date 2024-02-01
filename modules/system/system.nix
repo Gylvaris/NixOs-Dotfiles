@@ -34,6 +34,10 @@
         config = {
             allowUnfree = true;
         };
+        overlays = [
+            self.overlays.default
+            inputs.nur.overlay
+        ];
     };
 
     environment.systemPackages = with pkgs; [
