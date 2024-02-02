@@ -21,7 +21,7 @@
       #  facebook-container
       #  privacy-badger
       #];
-      extraConfig = builtins.readFile ./user.js;
+      #extraConfig = builtins.readFile ./user.js;
     };
   };
 }
